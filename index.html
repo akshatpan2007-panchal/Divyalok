@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8c270c">
+<title>DivyaLok | Bhakti Ki Duniya</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#fff8e9;
+  color:#42200f;
+}
+header{
+  background:linear-gradient(135deg,#9b260b,#e87516);
+  color:white;
+  text-align:center;
+  padding:27px 15px;
+  border-radius:0 0 28px 28px;
+}
+.logo{font-size:38px}
+header h1{margin:8px 0;font-size:32px}
+header p{margin:5px}
+nav{
+  display:flex;gap:9px;overflow-x:auto;
+  padding:12px;background:#fff1d3;
+  position:sticky;top:0;z-index:5;
+}
+nav a{
+  flex-shrink:0;text-decoration:none;
+  background:white;color:#8c270c;
+  padding:10px 14px;border-radius:20px;
+  font-weight:bold;font-size:13px;
+}
+main{padding:15px;max-width:750px;margin:auto}
+.hero{
+  background:linear-gradient(135deg,#ffe4a3,#fff5db);
+  border:1px solid #f3cc7c;border-radius:20px;
+  padding:22px;text-align:center;margin:10px 0 20px;
+}
+.hero .emoji{font-size:58px}
+h2{color:#a43712;font-size:22px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{
+  background:white;border:1px solid #f1dfc4;
+  border-radius:17px;padding:17px 12px;
+  text-align:center;box-shadow:0 3px 10px #6d36100d;
+}
+.card .emoji{font-size:35px}
+.card h3{margin:8px 0;color:#8c270c}
+button,.btn{
+  border:0;border-radius:22px;padding:11px 16px;
+  background:#a73512;color:white;font-size:14px;
+  font-weight:bold;cursor:pointer;text-decoration:none;
+  display:inline-block;margin:4px;
+}
+.secondary{background:#ffe6b7;color:#76270d}
+section{padding-top:10px;margin-bottom:27px}
+.counter{font-size:48px;font-weight:bold;color:#a73512;margin:12px}
+.diya{font-size:65px;transition:transform .3s}
+.lit{filter:drop-shadow(0 0 12px orange);transform:scale(1.1)}
+.mantra{
+  background:#fff1d3;padding:15px;border-radius:12px;
+  line-height:1.9;font-size:18px;
+}
+input[type=range]{width:100%}
+footer{
+  background:#8c270c;color:white;text-align:center;
+  padding:25px 12px;margin-top:30px;
+}
+.small{font-size:13px;line-height:1.6}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">🛕</div>
+  <h1>DivyaLok</h1>
+  <p>एक लिंक, पूरी भक्ति की दुनिया 🙏</p>
+  <p>जय श्री राम • जय माता दी • हर हर महादेव</p>
+</header>
+
+<nav>
+  <a href="#home">🏠 Home</a>
+  <a href="#darshan">🙏 दर्शन</a>
+  <a href="#jaap">📿 जाप</a>
+  <a href="#aarti">🎵 आरती</a>
+  <a href="#puja">🪔 पूजा</a>
+  <a href="#mantra">📖 मंत्र</a>
+</nav>
+
+<main>
+<div id="home" class="hero">
+  <div class="emoji">🙏</div>
+  <h2>आपका स्वागत है DivyaLok में</h2>
+  <p>कुछ पल प्रभु के नाम, शांति और भक्ति के नाम।</p>
+  <button onclick="document.querySelector('#darshan').scrollIntoView({behavior:'smooth'})">
+    दर्शन करें
+  </button>
+</div>
+
+<section id="darshan">
+  <h2>🌺 अपने आराध्य के दर्शन</h2>
+  <div class="grid">
+    <div class="card"><div class="emoji">🏹</div><h3>श्री राम</h3><p>जय श्री राम</p><button onclick="showBhakti('श्री राम')">जय श्री राम 🙏</button></div>
+    <div class="card"><div class="emoji">🦚</div><h3>श्री कृष्ण</h3><p>राधे राधे</p><button onclick="showBhakti('श्री कृष्ण')">राधे राधे 🙏</button></div>
+    <div class="card"><div class="emoji">🔱</div><h3>महादेव</h3><p>हर हर महादेव</p><button onclick="showBhakti('महादेव')">ॐ नमः शिवाय</button></div>
+    <div class="card"><div class="emoji">🌺</div><h3>माता रानी</h3><p>जय माता दी</p><button onclick="showBhakti('माता रानी')">जय माता दी 🙏</button></div>
+    <div class="card"><div class="emoji">🐒</div><h3>हनुमान जी</h3><p>जय बजरंगबली</p><button onclick="showBhakti('हनुमान जी')">जय हनुमान 🙏</button></div>
+    <div class="card"><div class="emoji">🙏</div><h3>गणेश जी</h3><p>गणपति बप्पा मोरया</p><button onclick="showBhakti('गणेश जी')">जय गणेश 🙏</button></div>
+  </div>
+  <p id="blessing" class="mantra" style="display:none;text-align:center"></p>
+</section>
+
+<section id="jaap">
+  <h2>📿 डिजिटल माला — 108 जाप</h2>
+  <div class="card">
+    <p>अपना मंत्र मन में जपें और हर जाप पर बटन दबाएँ।</p>
+    <div class="counter" id="count">0</div>
+    <p id="progress">108 में से 0 जाप</p>
+    <button onclick="addJaap()">📿 एक जाप</button>
+    <button class="secondary" onclick="resetJaap()">फिर से शुरू</button>
+    <div style="background:#f2dfc5;height:8px;border-radius:8px;margin-top:15px">
+      <div id="bar" style="width:0%;height:8px;background:#dc6a16;border-radius:8px"></div>
+    </div>
+    <p class="small">आपकी गिनती इसी पेज पर रखी जाती है।</p>
+  </div>
+</section>
+
+<section id="puja">
+  <h2>🪔 अपनी डिजिटल पूजा करें</h2>
+  <div class="card">
+    <div id="diya" class="diya">🪔</div>
+    <p id="diyaText">प्रभु के चरणों में श्रद्धा अर्पित करें।</p>
+    <button onclick="toggleDiya()">दीपक जलाएँ / बुझाएँ</button>
+    <button class="secondary" onclick="ringBell()">🔔 घंटी बजाएँ</button>
+    <button class="secondary" onclick="offerFlower()">🌸 फूल अर्पित करें</button>
+    <p id="pujaMessage" aria-live="polite"></p>
+  </div>
+</section>
+
+<section id="aarti">
+  <h2>🎵 आरती और भजन</h2>
+  <div class="card">
+    <div class="emoji">🎶</div>
+    <h3>भक्ति संगीत</h3>
+    <p>अपनी पसंद की आरती या भजन वीडियो यहाँ सुनें।</p>
+    <a class="btn" href="https://www.youtube.com/results?search_query=श्री+गणेश+आरती" target="_blank" rel="noopener">गणेश आरती</a>
+    <a class="btn" href="https://www.youtube.com/results?search_query=हनुमान+चालीसा" target="_blank" rel="noopener">हनुमान चालीसा</a>
+    <a class="btn" href="https://www.youtube.com/results?search_query=शिव+आरती" target="_blank" rel="noopener">शिव आरती</a>
+    <a class="btn" href="https://www.youtube.com/results?search_query=दुर्गा+माता+आरती" target="_blank" rel="noopener">माता की आरती</a>
+    <p class="small">इन बटनों से YouTube पर संबंधित भक्ति वीडियो खुलेंगे।</p>
+  </div>
+</section>
+
+<section id="mantra">
+  <h2>📖 पवित्र मंत्र</h2>
+  <div class="card">
+    <h3>महादेव मंत्र</h3>
+    <div class="mantra">ॐ नमः शिवाय॥</div>
+    <h3>श्री कृष्ण मंत्र</h3>
+    <div class="mantra">हरे कृष्ण हरे कृष्ण,<br>कृष्ण कृष्ण हरे हरे।<br>हरे राम हरे राम,<br>राम राम हरे हरे॥</div>
+    <h3>श्री गणेश मंत्र</h3>
+    <div class="mantra">ॐ गं गणपतये नमः॥</div>
+    <h3>पाठ का अक्षर आकार बदलें</h3>
+    <input type="range" min="16" max="30" value="18" oninput="changeFont(this.value)">
+  </div>
+</section>
+
+<section id="temple">
+  <h2>🛕 मंदिर दर्शन</h2>
+  <div class="grid">
+    <div class="card"><div class="emoji">🔱</div><h3>महाकालेश्वर</h3><a class="btn" href="https://www.youtube.com/results?search_query=Mahakaleshwar+live+darshan" target="_blank" rel="noopener">दर्शन करें</a></div>
+    <div class="card"><div class="emoji">🕉️</div><h3>काशी विश्वनाथ</h3><a class="btn" href="https://www.youtube.com/results?search_query=Kashi+Vishwanath+live+darshan" target="_blank" rel="noopener">दर्शन करें</a></div>
+    <div class="card"><div class="emoji">🏔️</div><h3>केदारनाथ</h3><a class="btn" href="https://www.youtube.com/results?search_query=Kedarnath+temple+darshan" target="_blank" rel="noopener">दर्शन करें</a></div>
+    <div class="card"><div class="emoji">🦚</div><h3>वृंदावन</h3><a class="btn" href="https://www.youtube.com/results?search_query=Vrindavan+temple+darshan" target="_blank" rel="noopener">दर्शन करें</a></div>
+  </div>
+  <p class="small">ये खोज लिंक हैं, आधिकारिक लाइव स्ट्रीम की गारंटी नहीं है।</p>
+</section>
+
+<section>
+  <h2>🌼 आज का भक्ति संदेश</h2>
+  <div class="mantra" style="text-align:center">
+    श्रद्धा और अच्छे कर्म ही सच्ची भक्ति का मार्ग हैं। 🙏
+    <br><button onclick="sharePage()">📲 शेयर करें</button>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div style="font-size:30px">🛕 🙏 🪔</div>
+  <h2 style="color:white">DivyaLok</h2>
+  <p>भक्ति • श्रद्धा • शांति</p>
+  <p class="small">सभी भक्तों को प्रेम और शुभकामनाएँ।</p>
+  <p class="small">© DivyaLok</p>
+</footer>
+
+<script>
+let count = 0;
+let lit = false;
+
+function addJaap(){
+  if(count < 108) count++;
+  document.getElementById('count').textContent = count;
+  document.getElementById('progress').textContent = '108 में से ' + count + ' जाप';
+  document.getElementById('bar').style.width = (count/108*100) + '%';
+  if(count === 108) alert('🙏 108 जाप पूरे हुए! जय श्री राम!');
+}
+function resetJaap(){
+  count = 0;
+  document.getElementById('count').textContent = 0;
+  document.getElementById('progress').textContent = '108 में से 0 जाप';
+  document.getElementById('bar').style.width = '0%';
+}
+function toggleDiya(){
+  lit = !lit;
+  document.getElementById('diya').classList.toggle('lit',lit);
+  document.getElementById('diyaText').textContent = lit
+    ? 'दीप प्रज्वलित है। जय माता दी! 🙏'
+    : 'प्रभु के चरणों में श्रद्धा अर्पित करें।';
+}
+function ringBell(){
+  document.getElementById('pujaMessage').textContent = '🔔 घंटी! प्रभु का स्मरण करें।';
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.type = 'sine'; osc.frequency.setValueAtTime(880,ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(440,ctx.currentTime+1);
+    gain.gain.setValueAtTime(0.25,ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+1.5);
+    osc.start(); osc.stop(ctx.currentTime+1.5);
+  }catch(e){}
+}
+function offerFlower(){
+  document.getElementById('pujaMessage').textContent = '🌸🌼🌺 फूल प्रभु के चरणों में अर्पित।';
+}
+function showBhakti(name){
+  const b = document.getElementById('blessing');
+  b.style.display = 'block';
+  b.textContent = name + ' को नमन 🙏 श्रद्धा बनाए रखें और अच्छे कर्म करें।';
+}
+function changeFont(size){
+  document.querySelectorAll('.mantra').forEach(el=>el.style.fontSize=size+'px');
+}
+async function sharePage(){
+  if(navigator.share){
+    try{await navigator.share({title:'DivyaLok',text:'एक लिंक, पूरी भक्ति की दुनिया 🙏',url:location.href})}catch(e){}
+  }else{
+    alert('इस वेबसाइट का लिंक अपने ब्राउज़र से कॉपी करके शेयर कर सकते हैं।');
+  }
+}
+</script>
+</body>
+  </html>
